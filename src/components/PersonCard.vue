@@ -1,9 +1,9 @@
 <template>
   <div>
-      <div class="person-card" v-if="showCardStatus">
-          <p class="hide cursor-pointer" @click="hideCardStatus()">Hide</p>
+      <div class="person-card">
+          <p class="hide cursor-pointer" @click='passEvent'>Hide</p>
           <div>
-            <img style="border-radius:50%" src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" height="60px" width="60px">
+            <img style="border-radius:50%" src="https://images.pexels.com/photos/950243/pexels-photo-950243.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" height="60px" width="60px">
           </div>
           <h4 class="mt-2"><b>Ekemini Mark</b></h4>
           <p style="font-size:12px">I’m a wedding and portrait photographer based in 
@@ -59,18 +59,16 @@
 
 <script>
 export default {
-// hideCardStatus()
     data: function () {
             return {
                 isPortfolio:true,
                 isAvailability:false,
-                isPricing:false,
-                showCardStatus:true
+                isPricing:false
             }
     },
     methods: {
-        hideCardStatus(){
-            this.showCardStatus = true
+        passEvent(){
+            this.$emit('hideCard',false)
         }
     }
 }
@@ -123,7 +121,7 @@ export default {
         display: flex;
         justify-content: space-between;
         font-size: 12px;
-        width:50%;
+        width:70%;
     }
     .share-div{
         text-align: center;

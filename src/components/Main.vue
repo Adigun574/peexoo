@@ -4,14 +4,14 @@
       <div class="top-nav">
           <div class="image-div">
               <div class="image-inner-div">
-                <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" height="100%">
+                <img src="https://images.pexels.com/photos/950243/pexels-photo-950243.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" height="40px" width="40px" style="border-radius:50%">
               </div>
-              <p class="show-card" @click="showCard()">Show Card</p>
+              <p class="show-card mt-3" @click="showCard()">Show Card</p>
           </div>
           <div class="navs">
-              <p class="active-nav cursor-pointer" @click="toggleView('portfolio')">Portfolio</p>
-              <p class="cursor-pointer" @click="toggleView('availability')">Availability</p>
-              <p class="cursor-pointer" @click="toggleView('pricing')">Pricing Package</p>
+              <p class="cursor-pointer" v-bind:class="{ 'active-nav': isPortfolio}" @click="toggleView('portfolio')">Portfolio</p>
+              <p class="cursor-pointer" v-bind:class="{ 'active-nav': isAvailability}" @click="toggleView('availability')">Availability</p>
+              <p class="cursor-pointer" v-bind:class="{ 'active-nav': isPricing}" @click="toggleView('pricing')">Pricing Package</p>
           </div>
           <div class="null">
               <p>null</p>
@@ -20,7 +20,7 @@
       <div class="row main-body-row">
           <div class="col-sm-4">
               <div class="person-card-container">
-                <PersonCard v-if="showCardStatus"/>
+                <PersonCard v-if="showCardStatus" @hideCard="changeCardView($event)"/>
               </div>
           </div>
           <div class="col-sm-8">
@@ -83,7 +83,10 @@ export default {
         },
         showCard(){
             this.showCardStatus = true
-        }
+        },
+        changeCardView(status){
+            this.showCardStatus = status
+        },
     }
 }
 </script>
@@ -102,6 +105,7 @@ export default {
     flex: 2;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .image-inner-div{
     border-radius: 50%;

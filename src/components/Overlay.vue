@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="test($event)">
       <div class="overlay-body">
           <div class="center-x">
               <div>
@@ -100,7 +100,21 @@
 
 <script>
 export default {
+    methods:{
+        test(e){
+            if(
+              e.target.classList[0] == 'large-img-div' ||
+              e.target.classList[0] == 'small-img-div' ||
+              e.target.classList[0] == 'like-count'  
 
+            ){
+                return
+            }
+            else{
+                this.$emit('hideOverlay',false)
+            }
+        }
+    }
 }
 </script>
 
@@ -111,6 +125,7 @@ export default {
     width:100vw;
     position: absolute;
     top:0;
+    left:0;
     padding:30px;
 }
 .center-x{
@@ -149,6 +164,11 @@ export default {
     width:80px;
     border-radius: 5px;
     background-image: url('https://images.pexels.com/photos/3535383/pexels-photo-3535383.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    transition: all .5s;
+    cursor: pointer;
+}
+.small-img-div:hover{
+    transform: scale(1.1);
 }
 /* .scaled-up-img{
     transform: scale(2);

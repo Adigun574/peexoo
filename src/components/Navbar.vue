@@ -6,11 +6,11 @@
       </div>
       <div class="flex-2">
           <div class="flex-2-1">
-              <p class="flex-2-1-p">Business Manager</p>
-              <p class="flex-2-1-p">MarketPlace</p>
-              <p>XooCam</p>
+              <p class="flex-2-1-p cursor-pointer">Business Manager</p>
+              <p class="flex-2-1-p cursor-pointer">MarketPlace</p>
+              <p class="cursor-pointer">XooCam</p>
           </div>
-          <p><span class="join">Join Peexoo</span> <i class="fa fa-caret-down caret-icon"></i></p>
+          <p class="cursor-pointer"><span class="join">Join Peexoo</span> <i class="fa fa-caret-down caret-icon"></i></p>
       </div>
   </div>
 </div>

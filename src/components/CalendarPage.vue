@@ -11,7 +11,7 @@
           <div class="text-stuff" style="color:#d4d3ce">
               <p style="font-size:6px" class="mt-1"><i class="fa fa-circle"></i></p>
               <p>Available</p>
-              <p>Unshaded dates are free dates</p>
+              <p>Unshaded dates are free dates<span style="visibility:hidden">..................</span></p>
           </div>
       </div>
   </div>
@@ -20,10 +20,11 @@
 <script>
 export default {
     data: function () {
+        let d = new Date()
             return {
                 range: {
-                start: new Date(2020, 0, 1),
-                end: new Date(2020, 0, 5)
+                start: new Date(d.getFullYear(), d.getMonth()+1, d.getDate()),
+                end: new Date(d.getFullYear(), d.getMonth()+1, d.getDate()+3)
                 }
             }
     },
